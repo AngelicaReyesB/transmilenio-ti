@@ -1,0 +1,127 @@
+version: '3.8'
+
+networks:
+  vlan10_dmz:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.10.0/24
+  vlan20_servidores:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.20.0/24
+  vlan40_gestion:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.40.0/24
+  vlan50_seguridad:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.50.0/24
+
+services:
+
+  # ── SERVICIO WEB — Nginx ─────────────────────────────────
+  srv-web-01:
+    image: nginx:latest
+    container_name: SRV-WEB-01
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      vlan10_dmz:
+        ipv4_address: 10.0.10.10
+
+  # ── BASE DE DATOS — MySQL ────────────────────────────────
+  srv-db-01:
+    image: mysql:8.0
+    container_name: SRV-DB-01
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Transmilenio2024!
+      MYSQL_DATABASE: transmilenio_db
+      MYSQL_USER: tm_user
+      MYSQL_PASSWORD: Tm_Pass2024!
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    networks:
+      vlan20_servidores:
+        ipv4_address: 10.0.20.10
+
+  # ── REPLICA MySQL ────────────────────────────────────────
+  srv-db-02:
+    image: mysql:8.0
+    container_name: SRV-DB-02
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Transmilenio2024!
+      MYSQL_DATABASE: transmilenio_db
+      MYSQL_USER: tm_user
+      MYSQL_PASSWORD: Tm_Pass2024!
+    volumes:
+      - db_data_replica:/var/lib/mysql
+    networks:
+      vlan20_servidores:
+        ipv4_address: 10.0.20.11
+
+  # ── ARCHIVOS — Samba ─────────────────────────────────────
+  srv-files-01:
+    image: dperson/samba
+    container_name: SRV-FILES-01
+    restart: always
+    environment:
+      - TZ=America/Bogota
+    command: >
+      -u "tm_admin;Admin2024!"
+      -u "tm_operador;Oper2024!"
+      -s "transmilenio;/samba/data;yes;no;no;tm_admin,tm_operador"
+      -s "publico;/samba/public;yes;no;yes;all"
+    volumes:
+      - ./samba/data:/samba/data
+      - samba_public:/samba/public
+    ports:
+      - "445:445"
+      - "139:139"
+    networks:
+      vlan20_servidores:
+        ipv4_address: 10.0.20.20
+
+  # ── SSH + NTP ────────────────────────────────────────────
+  srv-ssh-ntp:
+    image: ubuntu:22.04
+    container_name: SRV-SSH-NTP
+    restart: always
+    ports:
+      - "2222:22"
+      - "123:123/udp"
+    volumes:
+      - ./ntp/chrony.conf:/etc/chrony.conf
+    networks:
+      vlan40_gestion:
+        ipv4_address: 10.0.40.10
+    command: >
+      bash -c "
+        apt-get update -qq &&
+        apt-get install -y openssh-server chrony sudo -qq &&
+        mkdir -p /run/sshd &&
+        useradd -m -s /bin/bash tm_admin &&
+        echo 'tm_admin:Admin2024!' | chpasswd &&
+        usermod -aG sudo tm_admin &&
+        sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config &&
+        sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+        service chrony start &&
+        /usr/sbin/sshd -D
+      "
+
+volumes:
+  db_data:
+  db_data_replica:
+  samba_public:
