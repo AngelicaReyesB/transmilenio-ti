@@ -1,0 +1,34 @@
+/dev/md0:
+           Version : 1.2
+     Creation Time : Fri May  1 01:47:00 2026
+        Raid Level : raid1
+        Array Size : 5237760 (5.00 GiB 5.36 GB)
+     Used Dev Size : 5237760 (5.00 GiB 5.36 GB)
+      Raid Devices : 2
+     Total Devices : 2
+       Persistence : Superblock is persistent
+
+     Intent Bitmap : Internal
+
+       Update Time : Fri May  1 14:08:06 2026
+             State : clean 
+    Active Devices : 2
+   Working Devices : 2
+    Failed Devices : 0
+     Spare Devices : 0
+
+Consistency Policy : bitmap
+
+              Name : vm:0  (local to host vm)
+              UUID : 42b2919f:af08a2ba:cc277520:9f84be1e
+            Events : 20
+
+    Number   Major   Minor   RaidDevice State
+       0       8       16        0      active sync   /dev/sdb
+       1       8       32        1      active sync   /dev/sdc
+Personalities : [raid1] 
+md0 : active raid1 sdb[0] sdc[1]
+      5237760 blocks super 1.2 [2/2] [UU]
+      bitmap: 0/1 pages [0KB], 65536KB chunk
+
+unused devices: <none>

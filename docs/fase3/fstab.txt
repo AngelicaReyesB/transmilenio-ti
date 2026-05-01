@@ -1,0 +1,12 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda2 during curtin installation
+/dev/disk/by-uuid/ee026ad8-32a6-4815-be4e-87ecb4e4903c / ext4 defaults 0 1
+/dev/md0 /mnt/raid1 ext4 defaults 0 0
+/dev/vg_transmilenio/lv_datos /mnt/datos ext4 defaults 0 0
+/dev/vg_transmilenio/lv_backups /mnt/backups ext4 defaults 0 0

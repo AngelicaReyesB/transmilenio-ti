@@ -1,0 +1,7 @@
+  PV         VG              Fmt  Attr PSize  PFree   
+  /dev/sdd   vg_transmilenio lvm2 a--  <5.00g 1020.00m
+  VG              #PV #LV #SN Attr   VSize  VFree   
+  vg_transmilenio   1   2   0 wz--n- <5.00g 1020.00m
+  LV         VG              Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv_backups vg_transmilenio -wi-ao---- 1.00g                                                    
+  lv_datos   vg_transmilenio -wi-ao---- 3.00g                                                    

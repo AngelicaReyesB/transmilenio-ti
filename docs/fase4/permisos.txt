@@ -1,0 +1,7 @@
+total 24
+drwxr-xr-x 6 root root          4096 May  1 05:21 .
+drwxr-xr-x 3 root root          4096 May  1 05:21 ..
+drwxrws--- 2 root ti_admins     4096 May  1 05:21 admin
+drwxrwsr-t 2 root ti_admins     4096 May  1 05:21 compartido
+drwxrws--- 2 root ti_database   4096 May  1 05:21 database
+drwxrws--- 2 root ti_operadores 4096 May  1 05:21 operaciones
