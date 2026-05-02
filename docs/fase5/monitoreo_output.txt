@@ -1,0 +1,58 @@
+================================================
+  MONITOREO TRANSMILENIO TI — 2026-05-02_23:18:35
+================================================
+
+[ CPU y MEMORIA ]
+CPU uso: 5.4%
+RAM total: 2.7Gi | Usado: 1.2Gi | Libre: 301Mi
+
+[ DISCO ]
+Filesystem                              Size  Used Avail Use% Mounted on
+/dev/sda2                                15G  5.6G  8.4G  40% /
+tmpfs                                   1.4G     0  1.4G   0% /dev/shm
+/dev/mapper/vg_transmilenio-lv_backups  974M  344K  906M   1% /mnt/backups
+/dev/mapper/vg_transmilenio-lv_datos    2.9G  792K  2.8G   1% /mnt/datos
+/dev/md0                                4.9G  1.3M  4.6G   1% /mnt/raid1
+
+[ RAID ]
+md0 : active raid1 sdb[0] sdc[1]
+      5237760 blocks super 1.2 [2/2] [UU]
+      bitmap: 0/1 pages [0KB], 65536KB chunk
+Estado RAID: clean
+
+[ CONTENEDORES DOCKER ]
+NAMES          STATUS                    PORTS
+SRV-WEB-01     Up 19 minutes             0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp
+SRV-DB-02      Up 19 minutes             3306/tcp, 33060/tcp
+SRV-DB-01      Up 19 minutes             3306/tcp, 33060/tcp
+SRV-SSH-NTP    Up 19 minutes             0.0.0.0:123->123/udp, [::]:123->123/udp, 0.0.0.0:2222->22/tcp, [::]:2222->22/tcp
+SRV-FILES-01   Up 19 minutes (healthy)   0.0.0.0:139->139/tcp, [::]:139->139/tcp, 137-138/udp, 0.0.0.0:445->445/tcp, [::]:445->445/tcp
+✓ Todos los contenedores activos
+
+[ RED ]
+IP del servidor:
+    inet 192.168.110.50/24 brd 192.168.110.255 scope global enp0s3
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+    inet 10.0.10.1/24 brd 10.0.10.255 scope global br-0cf081b1c4e7
+    inet 10.0.20.1/24 brd 10.0.20.255 scope global br-cf60dfe0a881
+    inet 10.0.40.1/24 brd 10.0.40.255 scope global br-ce5b82977353
+Puertos abiertos:
+LISTEN 0      4096         0.0.0.0:80        0.0.0.0:*    users:(("docker-proxy",pid=61996,fd=8))  
+LISTEN 0      4096         0.0.0.0:22        0.0.0.0:*    users:(("systemd",pid=1,fd=78))          
+LISTEN 0      4096         0.0.0.0:2222      0.0.0.0:*    users:(("docker-proxy",pid=62060,fd=8))  
+LISTEN 0      4096         0.0.0.0:445       0.0.0.0:*    users:(("docker-proxy",pid=62175,fd=8))  
+LISTEN 0      4096         0.0.0.0:443       0.0.0.0:*    users:(("docker-proxy",pid=62034,fd=8))  
+LISTEN 0      4096            [::]:80           [::]:*    users:(("docker-proxy",pid=62006,fd=8))  
+LISTEN 0      4096            [::]:22           [::]:*    users:(("systemd",pid=1,fd=80))          
+LISTEN 0      4096            [::]:2222         [::]:*    users:(("docker-proxy",pid=62065,fd=8))  
+LISTEN 0      4096            [::]:445          [::]:*    users:(("docker-proxy",pid=62183,fd=8))  
+LISTEN 0      4096            [::]:443          [::]:*    users:(("docker-proxy",pid=62040,fd=8))  
+
+[ LOGS RECIENTES DEL SISTEMA ]
+May 02 23:18:36 vm sudo[67451]: pam_unix(sudo:session): session opened for user root(uid=0) by angelica(uid=0)
+May 02 23:18:36 vm sudo[67451]: root : TTY=/dev/pts/1 ; PWD=/home/angelica/transmilenio-ti ; USER=root ; COMMAND=/usr/bin/ss -tlnp
+May 02 23:18:36 vm sudo[67451]: pam_unix(sudo:session): session closed for user root
+May 02 23:18:36 vm sudo[67456]: pam_unix(sudo:session): session opened for user root(uid=0) by angelica(uid=0)
+May 02 23:18:36 vm sudo[67456]: root : TTY=/dev/pts/1 ; PWD=/home/angelica/transmilenio-ti ; USER=root ; COMMAND=/usr/bin/journalctl -n 5 --no-pager
+================================================
+Log guardado en: /var/log/transmilenio_monitor.log

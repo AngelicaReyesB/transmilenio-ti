@@ -1,0 +1,6 @@
+total 20
+drwxrwxr-x  2 angelica angelica 4096 May  2 23:16 .
+drwxrwxr-x 11 angelica angelica 4096 May  2 23:16 ..
+-rw-rw-r--  1 angelica angelica 2106 May  2 23:16 backup.sh
+-rw-rw-r--  1 angelica angelica 2226 May  2 23:16 despliegue.sh
+-rw-rw-r--  1 angelica angelica 2574 May  2 23:16 monitoreo.sh

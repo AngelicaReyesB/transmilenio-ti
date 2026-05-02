@@ -1,0 +1,73 @@
+================================================
+Inicio backup: 20260502_221846
+================================================
+[Sat May  2 10:18:46 PM UTC 2026] Iniciando backup de MySQL...
+[Sat May  2 10:18:47 PM UTC 2026] ✓ Backup MySQL exitoso: db_20260502_221846.sql
+[Sat May  2 10:18:47 PM UTC 2026] Iniciando backup de configuraciones...
+[Sat May  2 10:18:47 PM UTC 2026] ✗ Error en backup configs
+[Sat May  2 10:18:47 PM UTC 2026] Limpiando backups antiguos...
+[Sat May  2 10:18:47 PM UTC 2026] ✓ Limpieza completada
+[Sat May  2 10:18:47 PM UTC 2026] Backup finalizado
+Archivos en /mnt/backups/transmilenio:
+total 12K
+-rw-r--r-- 1 root root 4.6K May  2 22:18 configs_20260502_221846.tar.gz
+-rw-r--r-- 1 root root 3.2K May  2 22:18 db_20260502_221846.sql
+
+================================================
+Inicio backup: 20260502_222555
+================================================
+[Sat May  2 10:25:55 PM UTC 2026] Iniciando backup de MySQL...
+[Sat May  2 10:25:55 PM UTC 2026] ✓ Backup MySQL exitoso: db_20260502_222555.sql
+[Sat May  2 10:25:55 PM UTC 2026] Iniciando backup de configuraciones...
+[Sat May  2 10:25:55 PM UTC 2026] ✗ Error en backup configs
+[Sat May  2 10:25:55 PM UTC 2026] Limpiando backups antiguos...
+[Sat May  2 10:25:55 PM UTC 2026] ✓ Limpieza completada
+[Sat May  2 10:25:55 PM UTC 2026] Backup finalizado
+Archivos en /mnt/backups/transmilenio:
+total 24K
+-rw-r--r-- 1 root root 4.6K May  2 22:18 configs_20260502_221846.tar.gz
+-rw-r--r-- 1 root root 4.6K May  2 22:25 configs_20260502_222555.tar.gz
+-rw-r--r-- 1 root root 3.2K May  2 22:18 db_20260502_221846.sql
+-rw-r--r-- 1 root root 3.2K May  2 22:25 db_20260502_222555.sql
+
+================================================
+Inicio backup: 20260502_223443
+================================================
+[Sat May  2 10:34:43 PM UTC 2026] Iniciando backup de MySQL...
+[Sat May  2 10:34:44 PM UTC 2026] ✓ Backup MySQL exitoso: db_20260502_223443.sql
+[Sat May  2 10:34:44 PM UTC 2026] Iniciando backup de configuraciones...
+[Sat May  2 10:34:44 PM UTC 2026] ✓ Backup configs exitoso: configs_20260502_223443.tar.gz
+[Sat May  2 10:34:44 PM UTC 2026] Limpiando backups antiguos...
+[Sat May  2 10:34:44 PM UTC 2026] ✓ Limpieza completada
+[Sat May  2 10:34:44 PM UTC 2026] Backup finalizado
+Archivos en /mnt/backups/transmilenio:
+total 36K
+-rw-r--r-- 1 root root 4.6K May  2 22:18 configs_20260502_221846.tar.gz
+-rw-r--r-- 1 root root 4.6K May  2 22:25 configs_20260502_222555.tar.gz
+-rw-r--r-- 1 root root 5.8K May  2 22:34 configs_20260502_223443.tar.gz
+-rw-r--r-- 1 root root 3.2K May  2 22:18 db_20260502_221846.sql
+-rw-r--r-- 1 root root 3.2K May  2 22:25 db_20260502_222555.sql
+-rw-r--r-- 1 root root 3.2K May  2 22:34 db_20260502_223443.sql
+
+================================================
+Inicio backup: 20260502_224700
+================================================
+[Sat May  2 10:47:00 PM UTC 2026] Iniciando backup de MySQL...
+[Sat May  2 10:47:01 PM UTC 2026] ✓ Backup configs exitoso: configs_20260502_224700.tar.gz
+[Sat May  2 10:47:01 PM UTC 2026] Iniciando backup de configuraciones...
+[Sat May  2 10:47:01 PM UTC 2026] ✓ Backup configs exitoso: configs_20260502_224700.tar.gz
+[Sat May  2 10:47:01 PM UTC 2026] Limpiando backups antiguos...
+[Sat May  2 10:47:01 PM UTC 2026] ✓ Limpieza completada
+[Sat May  2 10:47:01 PM UTC 2026] Backup finalizado
+Archivos en /mnt/backups/transmilenio:
+total 56K
+-rw-r--r-- 1 root root 4.6K May  2 22:18 configs_20260502_221846.tar.gz
+-rw-r--r-- 1 root root 4.6K May  2 22:25 configs_20260502_222555.tar.gz
+-rw-r--r-- 1 root root 5.8K May  2 22:34 configs_20260502_223443.tar.gz
+-rw-r--r-- 1 root root 5.8K May  2 22:47 configs_20260502_224700.tar.gz
+-rw-r--r-- 1 root root 3.2K May  2 22:18 db_20260502_221846.sql
+-rw-r--r-- 1 root root 3.2K May  2 22:25 db_20260502_222555.sql
+-rw-r--r-- 1 root root 3.2K May  2 22:34 db_20260502_223443.sql
+-rw-r--r-- 1 root root 3.2K May  2 22:47 db_20260502_224700.sql
+-rw-r--r-- 1 root root 5.8K May  2 22:40 test.tar.gz
+
