@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   vlan10_dmz:
     driver: bridge
