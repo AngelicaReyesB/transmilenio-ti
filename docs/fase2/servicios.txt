@@ -1,0 +1,6 @@
+=== SERVICIOS FASE 2 ===
+Nginx    - SRV-WEB-01  - puerto 80
+MySQL    - SRV-DB-01   - puerto 3306
+MySQL    - SRV-DB-02   - puerto 3306
+Samba    - SRV-FILES-01- puerto 445
+SSH+NTP  - SRV-SSH-NTP - puertos 22,123

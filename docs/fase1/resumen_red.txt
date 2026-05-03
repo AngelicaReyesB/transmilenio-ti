@@ -1,0 +1,16 @@
+=== FASE 1 - DISEÑO DE RED ===
+VLANs configuradas:
+VLAN 10 - DMZ        - 10.0.10.0/24
+VLAN 20 - Servidores - 10.0.20.0/24
+VLAN 30 - Operaciones- 10.0.30.0/24
+VLAN 40 - Gestion TI - 10.0.40.0/24
+VLAN 50 - Seguridad  - 10.0.50.0/24
+
+Equipos Cisco:
+RTR-BORDE  - Cisco ISR 4331
+SW-CORE    - Cisco 3560-24PS Multilayer
+SW-DMZ     - Cisco 2960
+SW-SERV    - Cisco 2960
+SW-OPS     - Cisco 2960
+SW-GESTI   - Cisco 2960
+SW-SEG     - Cisco 2960

@@ -1,0 +1,8 @@
+IMAGE                       ID             DISK USAGE   CONTENT SIZE   EXTRA
+dperson/samba:latest        66088b78a198       76.4MB           20MB   U    
+grafana/grafana:latest      0f86bada30d6       1.45GB          347MB   U    
+mysql:8.0                   d0304ed9fdb6        1.1GB          249MB   U    
+nginx:latest                6e23479198b9        240MB         65.8MB   U    
+prom/node-exporter:latest   e9cff4fc67b1       40.7MB         13.3MB   U    
+prom/prometheus:latest      e4254400b856        578MB          153MB   U    
+ubuntu:22.04                962f6cadeae0        119MB         31.7MB   U    
