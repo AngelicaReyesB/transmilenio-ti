@@ -1,0 +1,5 @@
+=== BALANCEO DE CARGA ===
+SRV-LB: balanceador en 10.0.10.5
+SRV-WEB-01: servidor primario en 10.0.10.10
+SRV-WEB-02: servidor respaldo en 10.0.10.11
+Prueba: SRV-WEB-01 caído, SRV-WEB-02 respondió correctamente
