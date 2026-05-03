@@ -1,0 +1,20 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+angelica   70254  750  0.1  10468  5184 pts/0    R+   00:30   0:00 ps aux --sort=-%cpu
+472        69028  5.5 10.8 2095036 301776 ?      Ssl  May02   1:43 grafana server --homepath=/usr/share/grafana --config=/etc/grafana/grafana.ini --packaging=docker cfg:default.log.mode=console cfg:default.paths.data=/var/lib/grafana cfg:default.paths.logs=/var/log/grafana cfg:default.paths.plugins=/var/lib/grafana/plugins cfg:default.paths.provisioning=/etc/grafana/provisioning
+root        1464  4.1  1.4 2017264 39952 ?       Ssl  May02   6:01 /usr/bin/containerd
+root        1565  3.1  3.2 2629080 91156 ?       Ssl  May02   4:33 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+999        61877  1.7 12.7 1743128 355756 ?      Ssl  May02   1:37 mysqld
+999        61781  1.7 12.7 1743264 355648 ?      Ssl  May02   1:37 mysqld
+root          25  0.6  0.0      0     0 ?        S    May02   0:52 [ksoftirqd/1]
+root       67982  0.5  0.0      0     0 ?        I    May02   0:20 [kworker/1:1-events]
+root       69874  0.5  0.0      0     0 ?        I    00:25   0:01 [kworker/1:0-events]
+nobody     68877  0.5  3.4 1619196 96476 ?       Ssl  May02   0:09 /bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --web.enable-lifecycle
+angelica    3369  0.5  0.2  18680  7360 ?        S    May02   0:43 sshd-session: angelica@pts/0
+root       61744  0.4  0.3 1235100 11060 ?       Sl   May02   0:24 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 3e4ef994d0012e911d97f269bb1cd51ca153813e4c4a3551ca1d473c30ac85fb -address /run/containerd/containerd.sock
+root       61745  0.4  0.4 1235100 11472 ?       Sl   May02   0:24 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 326890c6204d84741e6f18ce5dd20e5ee0f9402f3ff52764198f8c98c51ffbc7 -address /run/containerd/containerd.sock
+root       68830  0.4  0.4 1235356 11160 ?       Sl   May02   0:08 /usr/bin/containerd-shim-runc-v2 -namespace moby -id ce91a7afd37175ee91b8ef36b343fba60545e217f0b79f835048c48065db50f9 -address /run/containerd/containerd.sock
+nobody     68876  0.3  0.8 1276444 22604 ?       Ssl  May02   0:07 /bin/node_exporter --path.procfs=/host/proc --path.sysfs=/host/sys --collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($|/)
+root       68827  0.3  0.3 1235356 11044 ?       Sl   May02   0:07 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 98570d3a89661a6ded948dc9ca889449894b7b9e5db5ca5cd9a8580ba0d9242f -address /run/containerd/containerd.sock
+root       61733  0.3  0.4 1235356 11196 ?       Sl   May02   0:20 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 11122a7b33bdd29824434ff14ceb1466eee589b6dae76f6615830b9a12c4839f -address /run/containerd/containerd.sock
+root       69003  0.2  0.3 1235100 11076 ?       Sl   May02   0:04 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 0a33923a3d9c750efb658812cad6fa2ce0fcafcd80bcbd10339ff643b2f89127 -address /run/containerd/containerd.sock
+root       61697  0.2  0.3 1235100 11080 ?       Sl   May02   0:13 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 1b8813a3d717647cd1745bc06d402dc369a0dee0e0fb53f5aeeb29878a042184 -address /run/containerd/containerd.sock

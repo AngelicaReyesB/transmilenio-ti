@@ -1,0 +1,9 @@
+NAME                IMAGE                       COMMAND                   SERVICE         CREATED          STATUS                 PORTS
+SRV-DB-01           mysql:8.0                   "docker-entrypoint.s…"    srv-db-01       2 hours ago      Up 2 hours             3306/tcp, 33060/tcp
+SRV-DB-02           mysql:8.0                   "docker-entrypoint.s…"    srv-db-02       2 hours ago      Up 2 hours             3306/tcp, 33060/tcp
+SRV-FILES-01        dperson/samba               "/sbin/tini -- /usr/…"    srv-files-01    2 hours ago      Up 2 hours (healthy)   0.0.0.0:139->139/tcp, [::]:139->139/tcp, 137-138/udp, 0.0.0.0:445->445/tcp, [::]:445->445/tcp
+SRV-GRAFANA         grafana/grafana:latest      "/run.sh"                 grafana         30 minutes ago   Up 30 minutes          0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+SRV-NODE-EXPORTER   prom/node-exporter:latest   "/bin/node_exporter …"    node-exporter   30 minutes ago   Up 30 minutes          0.0.0.0:9100->9100/tcp, [::]:9100->9100/tcp
+SRV-PROMETHEUS      prom/prometheus:latest      "/bin/prometheus --c…"    prometheus      30 minutes ago   Up 30 minutes          0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp
+SRV-SSH-NTP         ubuntu:22.04                "bash -c '\n  apt-get…"   srv-ssh-ntp     2 hours ago      Up 2 hours             0.0.0.0:123->123/udp, [::]:123->123/udp, 0.0.0.0:2222->22/tcp, [::]:2222->22/tcp
+SRV-WEB-01          nginx:latest                "/docker-entrypoint.…"    srv-web-01      2 hours ago      Up 2 hours             0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp

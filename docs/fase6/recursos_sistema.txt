@@ -1,0 +1,57 @@
+=== CPU y RAM ===
+top - 00:30:56 up  2:26,  2 users,  load average: 0.70, 0.63, 0.74
+Tasks: 172 total,   1 running, 171 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  8.0 sy,  0.0 ni, 80.0 id,  4.0 wa,  0.0 hi,  8.0 si,  0.0 st 
+MiB Mem :   2720.6 total,    340.0 free,   1410.6 used,   1164.3 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   1310.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   3369 angelica  20   0   18680   7360   5144 S   8.3   0.3   0:44.27 sshd-se+
+  61781 999       20   0 1743264 355648    904 S   8.3  12.8   1:37.32 mysqld
+  69028 472       20   0 2095036 301776 182016 S   8.3  10.8   1:43.79 grafana
+      1 root      20   0   25704  17020  11640 S   0.0   0.6   0:12.00 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.04 kthreadd
+      3 root      20   0       0      0      0 S   0.0   0.0   0:00.00 pool_wo+
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.01 kworker+
+     13 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker+
+=== DISCO ===
+Filesystem                              Size  Used Avail Use% Mounted on
+tmpfs                                   545M  1.9M  543M   1% /run
+/dev/sda2                                15G  7.6G  6.4G  55% /
+tmpfs                                   1.4G     0  1.4G   0% /dev/shm
+tmpfs                                   1.4G  8.0K  1.4G   1% /tmp
+none                                    1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none                                    1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+/dev/mapper/vg_transmilenio-lv_backups  974M  344K  906M   1% /mnt/backups
+/dev/mapper/vg_transmilenio-lv_datos    2.9G  792K  2.8G   1% /mnt/datos
+/dev/md0                                4.9G  1.3M  4.6G   1% /mnt/raid1
+none                                    1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+none                                    1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs                                   273M  8.0K  273M   1% /run/user/1000
+=== RED ===
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      4096         0.0.0.0:80        0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:139       0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:2222      0.0.0.0:*          
+LISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:445       0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:443       0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:9090      0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:9100      0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:3000      0.0.0.0:*          
+LISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          
+LISTEN 0      4096            [::]:80           [::]:*          
+LISTEN 0      4096            [::]:22           [::]:*          
+LISTEN 0      4096            [::]:139          [::]:*          
+LISTEN 0      4096            [::]:2222         [::]:*          
+LISTEN 0      4096            [::]:445          [::]:*          
+LISTEN 0      4096            [::]:443          [::]:*          
+LISTEN 0      4096            [::]:9090         [::]:*          
+LISTEN 0      4096            [::]:9100         [::]:*          
+LISTEN 0      4096            [::]:3000         [::]:*          
