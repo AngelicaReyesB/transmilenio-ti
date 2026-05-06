@@ -1,6 +1,6 @@
 # Verificación Final de Fases
 
-##1.Fase 2 - Docker y Servicios
+# 1.Fase 2 - Docker y Servicios
 
 ## Contenedores
 Se verificó que los 10 contenedores del proyecto estaban activos mediante
@@ -47,7 +47,7 @@ Una vez dentro del contenedor con el usuario tm_admin se verificó:
 Las 4 redes Docker correspondientes a las VLANs del diseño están activas.
 Los volúmenes de MySQL y Samba persisten correctamente entre reinicios.
 
-##2.Verificación Fase 3 — RAID y LVM
+# 2.Verificación Fase 3 — RAID y LVM
 
 ## RAID 1
 El array md0 mostró estado clean con ambos discos sdb y sdc en estado
