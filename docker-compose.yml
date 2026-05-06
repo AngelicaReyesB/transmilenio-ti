@@ -117,33 +117,6 @@ services:
       vlan20_servidores:
         ipv4_address: 10.0.20.20
 
-  # ── SSH + NTP ────────────────────────────────────────────
-  srv-ssh-ntp:
-    image: ubuntu:22.04
-    container_name: SRV-SSH-NTP
-    restart: always
-    ports:
-      - "2222:22"
-      - "123:123/udp"
-    volumes:
-      - ./ntp/chrony.conf:/etc/chrony.conf
-    networks:
-      vlan40_gestion:
-        ipv4_address: 10.0.40.10
-    command: >
-      bash -c "
-        apt-get update -qq &&
-        apt-get install -y openssh-server chrony sudo -qq &&
-        mkdir -p /run/sshd &&
-        useradd -m -s /bin/bash tm_admin &&
-        echo 'tm_admin:Admin2024!' | chpasswd &&
-        usermod -aG sudo tm_admin &&
-        sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config &&
-        sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
-        service chrony start &&
-        /usr/sbin/sshd -D
-      "
-
 # ── PROMETHEUS ───────────────────────────────────────────
   prometheus:
     image: prom/prometheus:latest
@@ -180,6 +153,18 @@ services:
         ipv4_address: 10.0.50.11
     depends_on:
       - prometheus
+
+  # ── SSH + NTP ────────────────────────────────────────────
+  srv-ssh-ntp:
+    build: ./ssh
+    container_name: SRV-SSH-NTP
+    restart: always
+    ports:
+      - "2222:22"
+      - "123:123/udp"
+    networks:
+      vlan40_gestion:
+        ipv4_address: 10.0.40.10
 
   # ── NODE EXPORTER (métricas del sistema) ─────────────────
   node-exporter:
