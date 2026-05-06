@@ -1,4 +1,6 @@
-# Verificación Fase 2 — Docker y Servicios
+# Verificación Final de Fases
+
+##1.Fase 2 - Docker y Servicios
 
 ## Contenedores
 Se verificó que los 10 contenedores del proyecto estaban activos mediante
@@ -45,4 +47,21 @@ Una vez dentro del contenedor con el usuario tm_admin se verificó:
 Las 4 redes Docker correspondientes a las VLANs del diseño están activas.
 Los volúmenes de MySQL y Samba persisten correctamente entre reinicios.
 
-#Prueba
+##2.Verificación Fase 3 — RAID y LVM
+
+## RAID 1
+El array md0 mostró estado clean con ambos discos sdb y sdc en estado
+active sync, confirmado por el indicador [UU]. Sin discos fallidos ni
+degradaciones. El RAID opera correctamente protegiendo los datos ante
+el fallo de cualquiera de los dos discos.
+
+## LVM
+El volumen físico /dev/sdd de 5GB está activo dentro del grupo
+vg_transmilenio. Los dos volúmenes lógicos operan correctamente:
+- lv_datos de 3GB montado en /mnt/datos con 2.8GB disponibles
+- lv_backups de 1GB montado en /mnt/backups con 906MB disponibles
+
+## Montajes permanentes
+Los tres puntos de montaje del proyecto — /mnt/raid1, /mnt/datos y
+/mnt/backups — están activos y se montan automáticamente al arranque
+gracias a las entradas configuradas en /etc/fstab.
