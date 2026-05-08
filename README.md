@@ -1,7 +1,7 @@
 # Infraestructura TI — Transmilenio Bogotá
 ## Documento Técnico Final
 
-**Institución:** Univerdidad del Quindío 
+**Institución:** Universidad del Quindío 
 **Asignatura:** Administración de Infraestuctura de TI  
 **Integrantes:** Angelica Reyes, Andrés Zambrano, Stteban Martínez
 **Fecha:** Mayo 2026  
