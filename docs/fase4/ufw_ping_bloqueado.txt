@@ -1,0 +1,29 @@
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), deny (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                   # SSH
+80/tcp                     ALLOW IN    Anywhere                   # HTTP-Nginx
+443/tcp                    ALLOW IN    Anywhere                   # HTTPS-Nginx
+3306                       ALLOW IN    10.0.20.0/24               # MySQL-interno
+445/tcp                    ALLOW IN    Anywhere                   # Samba-SMB
+139/tcp                    ALLOW IN    Anywhere                   # Samba-NetBIOS
+123/udp                    ALLOW IN    Anywhere                   # NTP
+2222/tcp                   ALLOW IN    Anywhere                   # SSH-contenedor
+9090/tcp                   ALLOW IN    Anywhere                   # Prometheus
+3000/tcp                   ALLOW IN    Anywhere                   # Grafana
+9100/tcp                   ALLOW IN    Anywhere                   # Node-Exporter
+22/tcp (v6)                ALLOW IN    Anywhere (v6)              # SSH
+80/tcp (v6)                ALLOW IN    Anywhere (v6)              # HTTP-Nginx
+443/tcp (v6)               ALLOW IN    Anywhere (v6)              # HTTPS-Nginx
+445/tcp (v6)               ALLOW IN    Anywhere (v6)              # Samba-SMB
+139/tcp (v6)               ALLOW IN    Anywhere (v6)              # Samba-NetBIOS
+123/udp (v6)               ALLOW IN    Anywhere (v6)              # NTP
+2222/tcp (v6)              ALLOW IN    Anywhere (v6)              # SSH-contenedor
+9090/tcp (v6)              ALLOW IN    Anywhere (v6)              # Prometheus
+3000/tcp (v6)              ALLOW IN    Anywhere (v6)              # Grafana
+9100/tcp (v6)              ALLOW IN    Anywhere (v6)              # Node-Exporter
+

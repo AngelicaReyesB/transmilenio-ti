@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmilenio — Panel Administrativo TI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: #1f3a5f;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .header h1 { font-size: 1.4rem; font-weight: 700; }
+    .header p { font-size: 0.8rem; opacity: 0.85; }
+
+    .badge-admin {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .main {
+      padding: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      border-left: 4px solid #1f3a5f;
+    }
+
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4a90d9;
+    }
+
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+      margin-top: 4px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #cccccc;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: #1f3a5f;
+      border-radius: 2px;
+    }
+
+    .table-wrapper {
+      background: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    thead { background: #1f3a5f; }
+    thead th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr { border-bottom: 1px solid #333; transition: background 0.2s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #333; }
+    tbody td { padding: 12px 16px; font-size: 0.88rem; color: #dddddd; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .badge-activo { background: #1a4a2a; color: #4caf7d; }
+    .badge-codigo { background: #1a2a3a; color: #64b5f6; font-family: monospace; }
+    .badge-vlan { background: #2a1a3a; color: #ce93d8; font-family: monospace; }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    .alert-box {
+      background: #1a2a1a;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      border-left: 4px solid #4caf7d;
+      font-size: 0.85rem;
+      color: #4caf7d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.75rem;
+      color: #555;
+      border-top: 1px solid #2a2a2a;
+      margin-top: 20px;
+    }
+
+    .link-public {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #4a90d9;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid #1f3a5f;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .link-public:hover { background: #1f3a5f; }
+
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid2 { grid-template-columns: 1fr; }
+      .main { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <h1>⚙️ Transmilenio — Panel TI</h1>
+      <p>Dashboard de Infraestructura — Acceso restringido equipo TI</p>
+    </div>
+    <span class="badge-admin">🔒 Administración Interna</span>
+  </div>
+
+  <div class="main">
+
+    <a href="/" class="link-public">← Ver portal público</a>
+
+    <div class="alert-box">
+      ✓ Todos los servicios operando con normalidad — 10 contenedores activos
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="number">10</div>
+        <div class="label">Contenedores activos</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">5</div>
+        <div class="label">VLANs configuradas</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">RAID 1</div>
+        <div class="label">Almacenamiento</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">3</div>
+        <div class="label">Niveles de HA</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+
+      <div>
+        <div class="section-title">Rutas del sistema</div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-codigo">B18</span></td>
+                <td>Portal Norte</td>
+                <td>Portal Sur</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-codigo">K11</span></td>
+                <td>Portal Eldorado</td>
+                <td>Calle 26</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-codigo">J23</span></td>
+                <td>Portal 80</td>
+                <td>Portal Américas</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Estaciones principales</div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Estación</th>
+                <th>Localidad</th>
+                <th>Capacidad</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Portal Norte</td>
+                <td>Usaquén</td>
+                <td>5,000</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td>Calle 26</td>
+                <td>Teusaquillo</td>
+                <td>3,000</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td>Portal Sur</td>
+                <td>Bosa</td>
+                <td>4,500</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-title">Infraestructura TI — Estado de servicios</div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Servidor</th>
+            <th>Servicio</th>
+            <th>IP</th>
+            <th>VLAN</th>
+            <th>Puerto</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SRV-LB</td>
+            <td>Nginx Balanceador</td>
+            <td><span class="badge badge-codigo">10.0.10.5</span></td>
+            <td><span class="badge badge-vlan">VLAN 10 — DMZ</span></td>
+            <td>80</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-WEB-01</td>
+            <td>Nginx Web Primario</td>
+            <td><span class="badge badge-codigo">10.0.10.10</span></td>
+            <td><span class="badge badge-vlan">VLAN 10 — DMZ</span></td>
+            <td>interno</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-WEB-02</td>
+            <td>Nginx Web Réplica</td>
+            <td><span class="badge badge-codigo">10.0.10.11</span></td>
+            <td><span class="badge badge-vlan">VLAN 10 — DMZ</span></td>
+            <td>interno</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-DB-01</td>
+            <td>MySQL Primario</td>
+            <td><span class="badge badge-codigo">10.0.20.10</span></td>
+            <td><span class="badge badge-vlan">VLAN 20 — Servidores</span></td>
+            <td>3306</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-DB-02</td>
+            <td>MySQL Réplica</td>
+            <td><span class="badge badge-codigo">10.0.20.11</span></td>
+            <td><span class="badge badge-vlan">VLAN 20 — Servidores</span></td>
+            <td>3306</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-FILES-01</td>
+            <td>Samba — Archivos</td>
+            <td><span class="badge badge-codigo">10.0.20.20</span></td>
+            <td><span class="badge badge-vlan">VLAN 20 — Servidores</span></td>
+            <td>445</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-SSH-NTP</td>
+            <td>SSH + NTP</td>
+            <td><span class="badge badge-codigo">10.0.40.10</span></td>
+            <td><span class="badge badge-vlan">VLAN 40 — Gestión TI</span></td>
+            <td>22 / 123</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-PROMETHEUS</td>
+            <td>Prometheus</td>
+            <td><span class="badge badge-codigo">10.0.50.10</span></td>
+            <td><span class="badge badge-vlan">VLAN 50 — Seguridad</span></td>
+            <td>9090</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-GRAFANA</td>
+            <td>Grafana</td>
+            <td><span class="badge badge-codigo">10.0.50.11</span></td>
+            <td><span class="badge badge-vlan">VLAN 50 — Seguridad</span></td>
+            <td>3000</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>SRV-NODE-EXPORTER</td>
+            <td>Node Exporter</td>
+            <td><span class="badge badge-codigo">10.0.50.12</span></td>
+            <td><span class="badge badge-vlan">VLAN 50 — Seguridad</span></td>
+            <td>9100</td>
+            <td><span class="badge badge-activo">Activo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title">Usuarios del sistema</div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Acceso MySQL</th>
+            <th>Acceso Samba</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>tm_admin</td>
+            <td>Administrador TI</td>
+            <td>Total</td>
+            <td>transmilenio + publico</td>
+          </tr>
+          <tr>
+            <td>tm_operador</td>
+            <td>Operador de tráfico</td>
+            <td>Lectura rutas y estaciones</td>
+            <td>transmilenio + publico</td>
+          </tr>
+          <tr>
+            <td>tm_conductor</td>
+            <td>Conductor</td>
+            <td>Solo rutas</td>
+            <td>conductores + publico</td>
+          </tr>
+          <tr>
+            <td>tm_gerente</td>
+            <td>Gerencia</td>
+            <td>Lectura total</td>
+            <td>transmilenio + publico</td>
+          </tr>
+          <tr>
+            <td>tm_cliente</td>
+            <td>Cliente</td>
+            <td>Solo rutas</td>
+            <td>publico</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Transmilenio S.A. · Panel de Administración TI · Acceso restringido · 2026
+  </div>
+
+</body>
+</html>

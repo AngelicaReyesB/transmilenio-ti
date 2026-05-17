@@ -2,22 +2,269 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Transmilenio — Portal Interno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmilenio — Portal Público</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #c0392b;
-           color: white; display: flex; justify-content: center;
-           align-items: center; height: 100vh; margin: 0; }
-    .box { text-align: center; padding: 40px;
-           background: rgba(0,0,0,0.3); border-radius: 12px; }
-    h1 { font-size: 2rem; margin-bottom: 10px; }
-    p  { font-size: 1rem; opacity: 0.85; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: #c0392b;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .header h1 { font-size: 1.4rem; font-weight: 700; }
+    .header p { font-size: 0.8rem; opacity: 0.85; }
+
+    .badge-pub {
+      background: rgba(0,0,0,0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+    }
+
+    .main {
+      padding: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      border-left: 4px solid #c0392b;
+    }
+
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #c0392b;
+    }
+
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+      margin-top: 4px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #cccccc;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: #c0392b;
+      border-radius: 2px;
+    }
+
+    .table-wrapper {
+      background: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    thead { background: #c0392b; }
+    thead th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr { border-bottom: 1px solid #333; transition: background 0.2s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #333; }
+    tbody td { padding: 12px 16px; font-size: 0.88rem; color: #dddddd; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .badge-activo { background: #1a4a2a; color: #4caf7d; }
+    .badge-codigo { background: #3a1a1a; color: #e57373; font-family: monospace; }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    .info-box {
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 28px;
+      border-left: 4px solid #c0392b;
+      font-size: 0.88rem;
+      color: #cccccc;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.75rem;
+      color: #555;
+      border-top: 1px solid #2a2a2a;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid2 { grid-template-columns: 1fr; }
+      .main { padding: 16px; }
+    }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>🚌 Transmilenio</h1>
-    <p>Sistema de Infraestructura TI — Portal Interno</p>
-    <p>Servidor: SRV-WEB-01 | IP: 10.0.10.10</p>
+
+  <div class="header">
+    <div>
+      <h1>🚌 Transmilenio</h1>
+      <p>Sistema Integrado de Transporte Masivo — Bogotá D.C.</p>
+    </div>
+    <span class="badge-pub">Portal Público</span>
   </div>
+
+  <div class="main">
+
+    <div class="info-box">
+      Bienvenido al portal de información de Transmilenio S.A. Aquí puedes consultar
+      las rutas disponibles y las estaciones principales del sistema de transporte
+      masivo de Bogotá.
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="number">3</div>
+        <div class="label">Rutas activas</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">3</div>
+        <div class="label">Estaciones</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">24/7</div>
+        <div class="label">Disponibilidad</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+
+      <div>
+        <div class="section-title">Rutas disponibles</div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-codigo">B18</span></td>
+                <td>Portal Norte</td>
+                <td>Portal Sur</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-codigo">K11</span></td>
+                <td>Portal Eldorado</td>
+                <td>Calle 26</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-codigo">J23</span></td>
+                <td>Portal 80</td>
+                <td>Portal Américas</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Estaciones principales</div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Estación</th>
+                <th>Localidad</th>
+                <th>Capacidad</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Portal Norte</td>
+                <td>Usaquén</td>
+                <td>5,000</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td>Calle 26</td>
+                <td>Teusaquillo</td>
+                <td>3,000</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+              <tr>
+                <td>Portal Sur</td>
+                <td>Bosa</td>
+                <td>4,500</td>
+                <td><span class="badge badge-activo">Activa</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Transmilenio S.A. · Bogotá D.C. · 2026 · Información sujeta a cambios operativos
+  </div>
+
 </body>
 </html>
