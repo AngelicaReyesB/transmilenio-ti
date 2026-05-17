@@ -8,7 +8,7 @@ BACKUP_DIR="/mnt/backups/transmilenio"
 LOG="/mnt/backups/backup.log"
 DB_CONTAINER="SRV-DB-01"
 DB_USER="tm_user"
-DB_PASS="Tm_Pass2024!"
+DB_PASS="Admin123"
 DB_NAME="transmilenio_db"
 
 # Crear directorio de backup

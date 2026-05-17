@@ -1,0 +1,27 @@
+tm_admin:x:1001:1004::/home/tm_admin:/bin/bash
+tm_operador:x:1002:1005::/home/tm_operador:/bin/bash
+tm_database:x:1003:1006::/home/tm_database:/bin/bash
+tm_backup:x:1004:1007::/home/tm_backup:/bin/bash
+tm_conductor:x:1005:1008::/home/tm_conductor:/bin/bash
+tm_gerente:x:1006:1009::/home/tm_gerente:/bin/bash
+tm_cliente:x:1007:1010::/home/tm_cliente:/bin/bash
+ti_admins:x:1001:tm_admin
+ti_operadores:x:1002:tm_operador
+ti_database:x:1003:tm_database
+ti_conductores:x:1011:tm_conductor
+ti_gerentes:x:1012:tm_gerente
+ti_clientes:x:1013:tm_cliente
+mysql: [Warning] Using a password on the command line interface can be insecure.
++--------------+------+
+| user         | host |
++--------------+------+
+| tm_cliente   | %    |
+| tm_conductor | %    |
+| tm_gerente   | %    |
+| tm_user      | %    |
++--------------+------+
+tm_admin:1000:Linux User
+tm_conductor:1002:Linux User
+tm_cliente:1004:Linux User
+tm_operador:1001:Linux User
+tm_gerente:1003:Linux User

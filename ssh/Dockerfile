@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /run/sshd
 
 RUN useradd -m -s /bin/bash tm_admin && \
-    echo 'tm_admin:Admin2024!' | chpasswd && \
+    echo 'tm_admin:Admin123' | chpasswd && \
     usermod -aG sudo tm_admin
 
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config && \
